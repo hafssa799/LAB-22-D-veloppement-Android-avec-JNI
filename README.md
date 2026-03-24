@@ -1,11 +1,11 @@
-## LAB 22 : Développement Android avec JNI (Java Native Interface)
+# LAB 22 : Développement Android avec JNI (Java Native Interface)
 
 
 🎯 Objectif
 
 Ce laboratoire vise à comprendre comment configurer un projet Android avec support natif C/C++ et maîtriser les concepts fondamentaux liés à JNI, NDK et CMake.
 
-# Étape 1 — Création du projet Android avec support C++
+## Étape 1 — Création du projet Android avec support C++
 
 🔹 Procédure de création
 
