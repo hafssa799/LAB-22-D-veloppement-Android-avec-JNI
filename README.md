@@ -279,16 +279,6 @@ log
   
 🔹 Code implémenté
 
-#include <jni.h>
-#include <string>
-#include <algorithm>
-#include <climits>
-#include <android/log.h>
-
-#define LOG_TAG "JNI_DEMO"
-#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
-#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
-
 // 1) Hello World natif
 extern "C"
 JNIEXPORT jstring JNICALL
