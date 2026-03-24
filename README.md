@@ -72,7 +72,10 @@ Vérifier que les éléments suivants sont installés :
 
 📸 Captures à insérer
 
+
        ![](https://github.com/user-attachments/assets/db63cd28-e3cb-4cd0-9f64-8dbd884eba12)
+
+ ![](https://github.com/user-attachments/assets/be3d9b0d-e702-4620-8322-9a00e12c6803)
 
           👉 Capture 1 : Écran de création du projet (configuration avec Include C++)
 
