@@ -2,7 +2,7 @@
 # LAB 22 : Développement Android avec JNI (Java Native Interface)
 
 
-🎯 Objectif
+## 🎯 Objectif
 
 
 Ce laboratoire a pour objectif de comprendre et de mettre en œuvre l’intégration du code natif C/C++ dans une application Android à l’aide de JNI (Java Native Interface).
