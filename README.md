@@ -57,19 +57,24 @@ Aller dans :
 Tools → SDK Manager → SDK Tools
 Vérifier que les éléments suivants sont installés :
 ✅ NDK (Side by side)
+
 ✅ CMake
+
 ✅ LLDB
 
 📸 Captures à insérer
 
-<img width="671" height="464" alt="image" src="https://github.com/user-attachments/assets/cef6ffd5-d1b5-4eef-b533-8b949f130067" />
-        👉 Capture 1 : Écran de création du projet (configuration avec Include C++)
+            ![](https://github.com/user-attachments/assets/cef6ffd5-d1b5-4eef-b533-8b949f130067)
+        
+          👉 Capture 1 : Écran de création du projet (configuration avec Include C++)
 
-            <img width="333" height="233" alt="image" src="https://github.com/user-attachments/assets/1a95432c-401a-46fe-a756-0500769b97f5" />
+            ![](https://github.com/user-attachments/assets/1a95432c-401a-46fe-a756-0500769b97f5)
+          
           👉 Capture 2 : Structure du projet (dossier cpp/, fichiers générés)
 
-          <img width="730" height="486" alt="image" src="https://github.com/user-attachments/assets/4cd24bf8-c0b1-494b-9994-7f4fa3876a8e" />
-         👉 Capture 3 : SDK Manager → SDK Tools avec NDK, CMake, LLDB cochés
+          ![](https://github.com/user-attachments/assets/4cd24bf8-c0b1-494b-9994-7f4fa3876a8e)
+          
+          👉 Capture 3 : SDK Manager → SDK Tools avec NDK, CMake, LLDB cochés
             
 
 # Étape 2 — Comprendre les rôles des composants
