@@ -422,8 +422,6 @@ Utiliser ReleaseStringUTFChars
 - Le débogage JNI nécessite une bonne correspondance entre Java et C++ 
 et une gestion correcte de la mémoire.
 
-📸 Capture : Erreur "App keeps stopping" (mauvaise bibliothèque JNI)
-
 Par exemple change :
 
 System.loadLibrary("jnidemo");
@@ -434,13 +432,15 @@ System.loadLibrary("fake-lib");
 
 ![](https://github.com/user-attachments/assets/3b26516c-91ce-49b3-9f30-824f640a71d4)
 
-📸 code corrigé
+📸 Capture : Erreur "App keeps stopping" (mauvaise bibliothèque JNI)
 
 👉 Corrige l’erreur :
 
 Remets :
 
 ![](https://github.com/user-attachments/assets/ff470e5a-ebee-470f-84a7-e4909a0a6189)
+
+📸 code corrigé
 
 ## Conclusion
 
