@@ -1,5 +1,5 @@
-# LAB 22 : Développement Android avec JNI (Java Native Interface)
 
+# LAB 22 : Développement Android avec JNI (Java Native Interface)
 
 🎯 Objectif
 
@@ -14,12 +14,19 @@ Ce laboratoire vise à comprendre comment configurer un projet Android avec supp
 Aller dans :
 
 - File → New Project → Empty Views Activity
+  
 - Configurer le projet comme suit :
+  
   * Name : JNIDemo
+    
   * Language : Java
+    
   * Minimum SDK : API 24
+    
    ✅ Cocher : Include C++ support
+  
   * Build system : CMake
+    
   * Cliquer sur Finish
     
 📂 Structure générée automatiquement
@@ -56,6 +63,7 @@ Aller dans :
 
 Tools → SDK Manager → SDK Tools
 Vérifier que les éléments suivants sont installés :
+
 ✅ NDK (Side by side)
 
 ✅ CMake
@@ -64,8 +72,8 @@ Vérifier que les éléments suivants sont installés :
 
 📸 Captures à insérer
 
-            ![](https://github.com/user-attachments/assets/cef6ffd5-d1b5-4eef-b533-8b949f130067)
-        
+       ![](https://github.com/user-attachments/assets/db63cd28-e3cb-4cd0-9f64-8dbd884eba12)
+
           👉 Capture 1 : Écran de création du projet (configuration avec Include C++)
 
             ![](https://github.com/user-attachments/assets/1a95432c-401a-46fe-a756-0500769b97f5)
