@@ -279,7 +279,7 @@ log
   
 🔹 Code implémenté
 
-👉 #include <jni.h>
+#include <jni.h>
 #include <string>
 #include <algorithm>
 #include <climits>
