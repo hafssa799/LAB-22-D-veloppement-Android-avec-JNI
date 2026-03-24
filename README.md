@@ -77,7 +77,7 @@ Vérifier que les éléments suivants sont installés :
           👉 Capture 3 : SDK Manager → SDK Tools avec NDK, CMake, LLDB cochés
             
 
-# Étape 2 — Comprendre les rôles des composants
+## Étape 2 — Comprendre les rôles des composants
 
 - Avant de commencer le développement, il est essentiel de comprendre les composants utilisés dans JNI.
 
@@ -133,16 +133,19 @@ System.loadLibrary permet de charger cette bibliothèque au démarrage
 
 📸 Captures à insérer
 
-<img width="390" height="187" alt="image" src="https://github.com/user-attachments/assets/7880091e-58c8-4030-b4b3-f56eee92c7bd" />
+              ![](https://github.com/user-attachments/assets/7880091e-58c8-4030-b4b3-f56eee92c7bd))
+                  
                    👉 Capture 4 : Fichier native-lib.cpp ouvert
 
-              <img width="904" height="505" alt="image" src="https://github.com/user-attachments/assets/50860098-b0e4-417e-a068-651b6aeeba7a" />
+              ![](https://github.com/user-attachments/assets/50860098-b0e4-417e-a068-651b6aeeba7a)
+                   
                    👉 Capture 5 : Fichier CMakeLists.txt
                     
-<img width="413" height="119" alt="image" src="https://github.com/user-attachments/assets/bbab36a5-cbcb-407f-b96e-de879c0d2b8c" />
+              ![](https://github.com/user-attachments/assets/bbab36a5-cbcb-407f-b96e-de879c0d2b8c)
+                   
                    👉 Capture 6 : Code Java avec System.loadLibrary
                        
-# Étape 3 — Vérification de la configuration Gradle
+## Étape 3 — Vérification de la configuration Gradle
 
 🔹 Accès au fichier
 
@@ -201,15 +204,18 @@ Sinon :
 
 📸 Capture à insérer
 
-<img width="479" height="343" alt="image" src="https://github.com/user-attachments/assets/22daffa6-c86e-4c13-8327-6a0f33a94325" />
+              ![](https://github.com/user-attachments/assets/22daffa6-c86e-4c13-8327-6a0f33a94325)
+         
           👉 Capture 1 : fichier build.gradle avec la section externalNativeBuild
 
-# Étape 4 — Configuration du fichier CMakeLists.txt
+## Étape 4 — Configuration du fichier CMakeLists.txt
+
 🔹 Accès au fichier
 
 Ouvrir :
 
 app/src/main/cpp/CMakeLists.txt
+
 🔹 Code à utiliser
 
 Remplacer le contenu par :
@@ -230,6 +236,7 @@ find_library(
 target_link_libraries(
         native-lib
         ${log-lib})
+        
 🔍 Explication ligne par ligne
 🔸 cmake_minimum_required(VERSION 3.22.1)
 
@@ -280,12 +287,15 @@ lib (préfixe)
 Donc :
 
 native-lib → libnative-lib.so
+
 📸 Captures à insérer
 
-<img width="466" height="254" alt="image" src="https://github.com/user-attachments/assets/cb12a660-0968-492e-9697-c047247ea600" />
+![](https://github.com/user-attachments/assets/cb12a660-0968-492e-9697-c047247ea600)
+              
                👉 Capture 2 : fichier CMakeLists.txt complet
 
-<img width="562" height="435" alt="image" src="https://github.com/user-attachments/assets/ae9874e9-f783-4e02-9f8c-7a4f087b7ba0" />
+![](https://github.com/user-attachments/assets/ae9874e9-f783-4e02-9f8c-7a4f087b7ba0)
+              
                👉 Capture 3 : dossier cpp/ avec fichiers visibles
 
 # Étape 5 — Implémentation du code natif en C++
@@ -414,6 +424,7 @@ Java_sg_vantagepoint_jnidemo_MainActivity_helloFromJNI(JNIEnv *env, jobject thiz
 }
 
 🔍 Explication du code
+
 🔸 #include <jni.h>
 
 Bibliothèque principale JNI permettant la communication entre Java et C++.
@@ -481,19 +492,23 @@ __android_log_print
 
 📸 Captures à insérer
 
-<img width="386" height="152" alt="image" src="https://github.com/user-attachments/assets/81edf259-c6ad-4ce5-bf25-7554f4075b5b" />
+![](https://github.com/user-attachments/assets/81edf259-c6ad-4ce5-bf25-7554f4075b5b)
+              
                👉 Capture 1 : fonction helloFromJNI
                
-<img width="382" height="367" alt="image" src="https://github.com/user-attachments/assets/97a00946-4d56-4811-b4aa-cad2038736cc" />
+![](https://github.com/user-attachments/assets/97a00946-4d56-4811-b4aa-cad2038736cc)
+              
                👉 Capture 2 : fonction factorial
                
-<img width="500" height="367" alt="image" src="https://github.com/user-attachments/assets/cec362a6-995e-462b-91de-59d7ff470721" />
+![](https://github.com/user-attachments/assets/cec362a6-995e-462b-91de-59d7ff470721)
+              
               👉 Capture 3 : fonction reverseString
              
-<img width="425" height="379" alt="image" src="https://github.com/user-attachments/assets/1b915fd5-46a4-4fcd-ac0c-4e81eb4455bf" />
+![](https://github.com/user-attachments/assets/1b915fd5-46a4-4fcd-ac0c-4e81eb4455bf)
+            
               👉 Capture 4 : fonction sumArray
 
-# Étape 6 — Déclaration des méthodes natives côté Java
+## Étape 6 — Déclaration des méthodes natives côté Java
 
 🔹 Accès au fichier
 
@@ -501,10 +516,9 @@ app/src/main/java/com/example/jnidemo/MainActivity.java
 
 🔹 Déclaration des méthodes
 
-public native String helloFromJNI();
-public native int factorial(int n);
-public native String reverseString(String s);
-public native int sumArray(int[] values);
+<img width="325" height="178" alt="image" src="https://github.com/user-attachments/assets/adc1ab4a-8c6a-4da7-9cd3-bb0c790e370e" />
+
+👉 Capture 6 : déclaration des méthodes native
 
 🔍 Explication
 
@@ -514,9 +528,9 @@ Indique que la méthode est implémentée en C++.
 
 🔹 Chargement de la bibliothèque
 
-static {
-    System.loadLibrary("native-lib");
-}
+<img width="266" height="65" alt="image" src="https://github.com/user-attachments/assets/31352978-b891-4dc6-8ad3-cd9206315286" />
+
+👉 Capture 7 : bloc System.loadLibrary
 
 ⚠️ Point critique (TRÈS IMPORTANT)
 
@@ -536,25 +550,6 @@ lib
 .so
 🔹 Appel des fonctions natives
 
-Dans onCreate() :
-
-appel helloFromJNI()
-calcul du factoriel
-inversion de chaîne
-somme d’un tableau
-
-👉 Résultats affichés dans des TextView
-
-📸 Captures à insérer
-
-<img width="325" height="178" alt="image" src="https://github.com/user-attachments/assets/adc1ab4a-8c6a-4da7-9cd3-bb0c790e370e" />
-
-👉 Capture 6 : déclaration des méthodes native
-
-<img width="266" height="65" alt="image" src="https://github.com/user-attachments/assets/31352978-b891-4dc6-8ad3-cd9206315286" />
-
-👉 Capture 7 : bloc System.loadLibrary
-
 <img width="481" height="347" alt="image" src="https://github.com/user-attachments/assets/ec14df24-f56d-4c1f-8877-fec7da918858" />
 
 👉 Capture 8 : méthode onCreate()
@@ -566,7 +561,7 @@ somme d’un tableau
 - Cette application démontre l’utilisation de JNI pour exécuter du code natif en C++ dans une application Android.
 Les tests réalisés (factoriel, inversion de chaîne, somme de tableau) montrent la communication efficace entre Java et le code natif.
 
-# Étape 7 — Créer le layout XML complet
+## Étape 7 — Créer le layout XML complet
 
 activity_main.xml :
 
