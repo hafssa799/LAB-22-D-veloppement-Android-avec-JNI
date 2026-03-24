@@ -197,7 +197,7 @@ path
  
 ![](https://github.com/user-attachments/assets/316afc3e-ea5e-42f2-ba36-9db76e2ccb72)
 
-👉 Capture 1 : fichier build.gradle avec la section externalNativeBuild
+👉 Capture 6 : fichier build.gradle avec la section externalNativeBuild
 
 ## Étape 4 — Configuration du fichier CMakeLists.txt
 
@@ -265,11 +265,11 @@ log
 
 ![](https://github.com/user-attachments/assets/cb12a660-0968-492e-9697-c047247ea600)
               
-👉 Capture 2 : fichier CMakeLists.txt complet
+👉 Capture 7 : fichier CMakeLists.txt complet
 
 ![](https://github.com/user-attachments/assets/ae9874e9-f783-4e02-9f8c-7a4f087b7ba0)
               
-👉 Capture 3 : dossier cpp/ avec fichiers visibles
+👉 Capture 8 : dossier cpp/ avec fichiers visibles
 
 # Étape 5 — Implémentation du code natif en C++
 
@@ -428,19 +428,19 @@ __android_log_print
 
 ![](https://github.com/user-attachments/assets/81edf259-c6ad-4ce5-bf25-7554f4075b5b)
               
- 👉 Capture 1 : fonction helloFromJNI
+ 👉 Capture 9 : fonction helloFromJNI
                
 ![](https://github.com/user-attachments/assets/97a00946-4d56-4811-b4aa-cad2038736cc)
               
-👉 Capture 2 : fonction factorial
+👉 Capture 10 : fonction factorial
                
 ![](https://github.com/user-attachments/assets/cec362a6-995e-462b-91de-59d7ff470721)
               
-👉 Capture 3 : fonction reverseString
+👉 Capture 11 : fonction reverseString
              
 ![](https://github.com/user-attachments/assets/1b915fd5-46a4-4fcd-ac0c-4e81eb4455bf)
             
-👉 Capture 4 : fonction sumArray
+👉 Capture 12 : fonction sumArray
 
 ## Étape 6 — Déclaration des méthodes natives côté Java
 
@@ -452,7 +452,7 @@ app/src/main/java/com/example/jnidemo/MainActivity.java
 
 ![](https://github.com/user-attachments/assets/adc1ab4a-8c6a-4da7-9cd3-bb0c790e370e)
 
-👉 Capture 6 : déclaration des méthodes native
+👉 Capture 13 : déclaration des méthodes native
 
 🔍 Explication
 
@@ -464,13 +464,13 @@ Indique que la méthode est implémentée en C++.
 
 ![](https://github.com/user-attachments/assets/31352978-b891-4dc6-8ad3-cd9206315286)
 
-👉 Capture 7 : bloc System.loadLibrary
+👉 Capture 14 : bloc System.loadLibrary
 
 🔹 Appel des fonctions natives
 
 ![](https://github.com/user-attachments/assets/ec14df24-f56d-4c1f-8877-fec7da918858)
 
-👉 Capture 8 : méthode onCreate()
+👉 Capture 15 : méthode onCreate()
 
 ## Étape 7 — Créer le layout XML complet
 
@@ -526,7 +526,7 @@ activity_main.xml :
 
 ![](https://github.com/user-attachments/assets/e8d2c48b-2df2-4e9e-a489-0205efd785b2)
 
-👉 Capture 9 : affichage dans l’application
+👉 Capture 16 : affichage dans l’application
 
 - Cette application démontre l’utilisation de JNI pour exécuter du code natif en C++ dans une application Android.
 Les tests réalisés (factoriel, inversion de chaîne, somme de tableau) montrent la communication efficace entre Java et le code natif.
@@ -537,7 +537,7 @@ Dans Android Studio : View → Tool Windows → Logcat
 
 ![](https://github.com/user-attachments/assets/dcf170e7-e7dd-4aec-a16d-9a202c1b3722)
 
-👉 Capture 9 : Logcat avec filtre "JNI_DEMO"
+👉 Capture 17 : Logcat avec filtre "JNI_DEMO"
 
 ## Étape 10 — Tests fonctionnels guidés
 
