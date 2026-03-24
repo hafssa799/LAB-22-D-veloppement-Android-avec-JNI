@@ -71,20 +71,17 @@ Vérifier que les éléments suivants sont installés :
 ✅ LLDB
 
 📸 Captures à insérer
-
-
-       ![](https://github.com/user-attachments/assets/db63cd28-e3cb-4cd0-9f64-8dbd884eba12)
-
+ 
  ![](https://github.com/user-attachments/assets/be3d9b0d-e702-4620-8322-9a00e12c6803)
 
           👉 Capture 1 : Écran de création du projet (configuration avec Include C++)
 
-            ![](https://github.com/user-attachments/assets/1a95432c-401a-46fe-a756-0500769b97f5)
-          
+ ![](https://github.com/user-attachments/assets/24d6d1b4-1be8-47c8-b4aa-7c7e9bef3170)
+
           👉 Capture 2 : Structure du projet (dossier cpp/, fichiers générés)
 
-          ![](https://github.com/user-attachments/assets/4cd24bf8-c0b1-494b-9994-7f4fa3876a8e)
-          
+![](https://github.com/user-attachments/assets/eced42a9-b755-49a0-9877-0de860cabc02)
+
           👉 Capture 3 : SDK Manager → SDK Tools avec NDK, CMake, LLDB cochés
             
 
@@ -92,25 +89,25 @@ Vérifier que les éléments suivants sont installés :
 
 - Avant de commencer le développement, il est essentiel de comprendre les composants utilisés dans JNI.
 
-🔗 JNI (Java Native Interface)
+## JNI (Java Native Interface)
 
 - JNI est une interface qui permet au code Java d’interagir avec du code natif écrit en C/C++.
 
-📌 Rôle :
+## Rôle :
 
 - Appeler des fonctions C/C++ depuis Java
 
 - Utiliser des bibliothèques natives dans Android
 
-💡 Exemple d’utilisation :
+## Exemple d’utilisation :
 
 Java → appelle → fonction native → retourne résultat
 
-🛠️ NDK (Native Development Kit)
+## NDK (Native Development Kit)
 
 Le NDK est un ensemble d’outils fourni par Android permettant de développer en C/C++.
 
-📌 Rôle :
+## Rôle :
 
 - Compiler le code natif
 
@@ -118,17 +115,17 @@ Le NDK est un ensemble d’outils fourni par Android permettant de développer e
 
 - Accéder à des fonctionnalités bas niveau
   
-⚙️ CMake
+## CMake
 
 CMake est un système de build utilisé pour configurer la compilation du code C/C++.
 
-📌 Rôle :
+## Rôle :
 
 -Décrire les fichiers à compiler
 
 -Gérer la génération de la bibliothèque native
 
-📦 Bibliothèque partagée (.so)
+## Bibliothèque partagée (.so)
 
 - Le code natif est compilé sous forme de bibliothèque partagée : libjnidemo.so
   
@@ -136,26 +133,22 @@ CMake est un système de build utilisé pour configurer la compilation du code C
 
 - Cette bibliothèque est chargée dans le code Java avec : System.loadLibrary("jnidemo");
 
-🔍 Explication
+🔹 Explication
 
 .so = bibliothèque dynamique (comme .dll sur Windows)
 
 System.loadLibrary permet de charger cette bibliothèque au démarrage
 
-📸 Captures à insérer
+           
+![](https://github.com/user-attachments/assets/43f9ad7d-e80a-4ff6-9506-981da7d0d96f)
 
-              ![](https://github.com/user-attachments/assets/7880091e-58c8-4030-b4b3-f56eee92c7bd))
-                  
-                   👉 Capture 4 : Fichier native-lib.cpp ouvert
+👉 Capture 4 : Fichier native-lib.cpp ouvert
+ 
+![](https://github.com/user-attachments/assets/149ae0d0-f5c4-4588-a7f1-0ad76365aed3)
+                   
+👉 Capture 5 : Fichier CMakeLists.txt
 
-              ![](https://github.com/user-attachments/assets/50860098-b0e4-417e-a068-651b6aeeba7a)
-                   
-                   👉 Capture 5 : Fichier CMakeLists.txt
-                    
-              ![](https://github.com/user-attachments/assets/bbab36a5-cbcb-407f-b96e-de879c0d2b8c)
-                   
-                   👉 Capture 6 : Code Java avec System.loadLibrary
-                       
+
 ## Étape 3 — Vérification de la configuration Gradle
 
 🔹 Accès au fichier
@@ -214,10 +207,10 @@ Sinon :
 👉 Toujours vérifier le chemin en cas d’erreur
 
 📸 Capture à insérer
+    
+![](https://github.com/user-attachments/assets/316afc3e-ea5e-42f2-ba36-9db76e2ccb72)
 
-              ![](https://github.com/user-attachments/assets/22daffa6-c86e-4c13-8327-6a0f33a94325)
-         
-          👉 Capture 1 : fichier build.gradle avec la section externalNativeBuild
+👉 Capture 1 : fichier build.gradle avec la section externalNativeBuild
 
 ## Étape 4 — Configuration du fichier CMakeLists.txt
 
@@ -249,6 +242,7 @@ target_link_libraries(
         ${log-lib})
         
 🔍 Explication ligne par ligne
+
 🔸 cmake_minimum_required(VERSION 3.22.1)
 
 👉 Définit la version minimale de CMake requise
@@ -262,8 +256,11 @@ target_link_libraries(
 👉 Crée une bibliothèque :
 
 Nom : native-lib
+
 Type : SHARED → bibliothèque dynamique (.so)
+
 Source : native-lib.cpp
+
 🔸 find_library(log-lib log)
 
 👉 Recherche la bibliothèque système Android log
@@ -287,7 +284,9 @@ System.loadLibrary("native-lib");
 Sinon :
 
 ❌ erreur au lancement
+
 ❌ bibliothèque introuvable
+
 💡 Important
 
 👉 Android ajoute automatiquement :
