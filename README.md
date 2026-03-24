@@ -97,7 +97,7 @@ Vérifier que les éléments suivants sont installés :
 
 - Avant de commencer le développement, il est essentiel de comprendre les composants utilisés dans JNI.
 
-### JNI (Java Native Interface)
+### - JNI (Java Native Interface)
 
 - JNI est une interface qui permet au code Java d’interagir avec du code natif écrit en C/C++.
 
@@ -107,7 +107,7 @@ Vérifier que les éléments suivants sont installés :
 
 - Utiliser des bibliothèques natives dans Android
 
-### NDK (Native Development Kit)
+### - NDK (Native Development Kit)
 
 Le NDK est un ensemble d’outils fourni par Android permettant de développer en C/C++.
 
@@ -119,7 +119,7 @@ Le NDK est un ensemble d’outils fourni par Android permettant de développer e
 
 - Accéder à des fonctionnalités bas niveau
   
-### CMake
+### - CMake
 
 CMake est un système de build utilisé pour configurer la compilation du code C/C++.
 
@@ -129,7 +129,7 @@ CMake est un système de build utilisé pour configurer la compilation du code C
 
 -Gérer la génération de la bibliothèque native
 
-### Bibliothèque partagée (.so)
+### - Bibliothèque partagée (.so)
 
 - Le code natif est compilé sous forme de bibliothèque partagée : libjnidemo.so
   
@@ -183,15 +183,15 @@ android {
 
 ### Explication
 
-externalNativeBuild
+- externalNativeBuild
 
 👉 Permet à Gradle d’intégrer la compilation du code natif
 
-cmake
+- cmake
 
 👉 Spécifie que CMake est utilisé comme système de build
 
-path
+- path
 
 👉 Indique l’emplacement du fichier CMakeLists.txt
  
