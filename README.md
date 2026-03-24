@@ -38,7 +38,7 @@ Aller dans :
 
 🔍 Explication
 
-# Android Studio utilise :
+## Android Studio utilise :
 
 - NDK pour compiler le code C/C++
 - CMake pour gérer le processus de compilation
