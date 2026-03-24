@@ -3,7 +3,22 @@
 
 🎯 Objectif
 
-Ce laboratoire vise à comprendre comment configurer un projet Android avec support natif C/C++ et maîtriser les concepts fondamentaux liés à JNI, NDK et CMake.
+
+Ce laboratoire a pour objectif de comprendre et de mettre en œuvre l’intégration du code natif C/C++ dans une application Android à l’aide de JNI (Java Native Interface).
+
+Il vise à apprendre comment configurer un projet Android avec support natif en utilisant les outils fournis par Android, notamment le NDK (Native Development Kit) et CMake.
+
+Plus précisément, ce laboratoire permet de :
+
+- Comprendre le rôle de JNI dans la communication entre le code Java et le code natif C/C++.
+- Apprendre à configurer correctement un projet Android pour supporter le développement natif.
+- Utiliser le NDK pour compiler du code C/C++ et générer des bibliothèques partagées (.so).
+- Utiliser CMake pour décrire et automatiser le processus de compilation du code natif.
+- Implémenter et appeler des fonctions natives depuis une application Android.
+- Comprendre les contraintes liées à la gestion de la mémoire et aux signatures JNI.
+- Tester et valider le bon fonctionnement des interactions entre Java et C++.
+
+Ce laboratoire constitue une introduction essentielle au développement natif sous Android, permettant d’améliorer les performances des applications et d’exploiter des bibliothèques existantes en C/C++.
 
 ## Étape 1 — Création du projet Android avec support C++
 
@@ -70,7 +85,6 @@ Vérifier que les éléments suivants sont installés :
 
 ✅ LLDB
 
-📸 Captures à insérer
  
  ![](https://github.com/user-attachments/assets/be3d9b0d-e702-4620-8322-9a00e12c6803)
 
@@ -206,7 +220,6 @@ Sinon :
 👉 Ne pas modifier cette partie sans raison
 👉 Toujours vérifier le chemin en cas d’erreur
 
-📸 Capture à insérer
     
 ![](https://github.com/user-attachments/assets/316afc3e-ea5e-42f2-ba36-9db76e2ccb72)
 
@@ -298,7 +311,6 @@ Donc :
 
 native-lib → libnative-lib.so
 
-📸 Captures à insérer
 
 ![](https://github.com/user-attachments/assets/cb12a660-0968-492e-9697-c047247ea600)
               
@@ -500,7 +512,6 @@ __android_log_print
 
 👉 Permet d’afficher des logs dans Logcat
 
-📸 Captures à insérer
 
 ![](https://github.com/user-attachments/assets/81edf259-c6ad-4ce5-bf25-7554f4075b5b)
               
@@ -526,7 +537,7 @@ app/src/main/java/com/example/jnidemo/MainActivity.java
 
 🔹 Déclaration des méthodes
 
-<img width="325" height="178" alt="image" src="https://github.com/user-attachments/assets/adc1ab4a-8c6a-4da7-9cd3-bb0c790e370e" />
+![](https://github.com/user-attachments/assets/adc1ab4a-8c6a-4da7-9cd3-bb0c790e370e)
 
 👉 Capture 6 : déclaration des méthodes native
 
@@ -538,7 +549,7 @@ Indique que la méthode est implémentée en C++.
 
 🔹 Chargement de la bibliothèque
 
-<img width="266" height="65" alt="image" src="https://github.com/user-attachments/assets/31352978-b891-4dc6-8ad3-cd9206315286" />
+![](https://github.com/user-attachments/assets/31352978-b891-4dc6-8ad3-cd9206315286)
 
 👉 Capture 7 : bloc System.loadLibrary
 
@@ -560,16 +571,9 @@ lib
 .so
 🔹 Appel des fonctions natives
 
-<img width="481" height="347" alt="image" src="https://github.com/user-attachments/assets/ec14df24-f56d-4c1f-8877-fec7da918858" />
+![](https://github.com/user-attachments/assets/ec14df24-f56d-4c1f-8877-fec7da918858)
 
 👉 Capture 8 : méthode onCreate()
-
-<img width="188" height="374" alt="image" src="https://github.com/user-attachments/assets/e8d2c48b-2df2-4e9e-a489-0205efd785b2" />
-
-👉 Capture 9 : affichage dans l’application
-
-- Cette application démontre l’utilisation de JNI pour exécuter du code natif en C++ dans une application Android.
-Les tests réalisés (factoriel, inversion de chaîne, somme de tableau) montrent la communication efficace entre Java et le code natif.
 
 ## Étape 7 — Créer le layout XML complet
 
@@ -620,3 +624,152 @@ activity_main.xml :
 
     </LinearLayout>
 </ScrollView>
+
+## Étape 8 — Compiler et exécuter
+
+![](https://github.com/user-attachments/assets/e8d2c48b-2df2-4e9e-a489-0205efd785b2)
+
+👉 Capture 9 : affichage dans l’application
+
+- Cette application démontre l’utilisation de JNI pour exécuter du code natif en C++ dans une application Android.
+Les tests réalisés (factoriel, inversion de chaîne, somme de tableau) montrent la communication efficace entre Java et le code natif.
+
+## Étape 9 — Vérification des logs natifs (Logcat)
+
+Dans Android Studio : View → Tool Windows → Logcat
+
+![](https://github.com/user-attachments/assets/dcf170e7-e7dd-4aec-a16d-9a202c1b3722)
+
+👉 Capture 9 : Logcat avec filtre "JNI_DEMO"
+
+## Étape 10 — Tests fonctionnels guidés
+
+Tester les fonctions JNI avec différents cas pour valider leur robustesse.
+
+🧪 Test 1 : Valeur normale
+
+int fact10 = factorial(10);
+
+✔️ Résultat attendu
+
+![](https://github.com/user-attachments/assets/47a3de18-ebe5-4b89-95b0-c6769741a255)
+
+🧪 Test 2 : Valeur négative
+
+int fact10 = factorial(-5);
+
+✔️ Résultat attendu
+
+![](https://github.com/user-attachments/assets/1287d4fc-581c-49c0-9516-7164949f8f3c)
+
+🧪 Test 3 : Dépassement (overflow)
+
+int fact10 = factorial(20);
+
+✔️ Résultat attendu
+
+![](https://github.com/user-attachments/assets/00b8bfe3-55cd-4704-b9ab-f3b2450a5077)
+
+🧪 Test 4 : Chaîne vide
+
+String reversed = reverseString("");
+
+✔️ Résultat attendu
+
+![](https://github.com/user-attachments/assets/610fe011-2627-44ad-afc7-c53ec62e431a)
+
+🧪 Test 5 : Tableau vide
+
+int[] numbers = {};
+
+✔️ Résultat attendu
+
+![](https://github.com/user-attachments/assets/5d34dd70-f989-4bb5-bc0d-27565c4cdbed)
+
+
+📊 Analyse des résultats
+
+Ces tests montrent que :
+
+✔️ Les fonctions JNI fonctionnent correctement
+✔️ Les erreurs sont bien gérées côté C++
+✔️ L’application est robuste
+
+
+## Étape 11 — Débogage des erreurs fréquentes
+
+Lors du développement avec JNI, plusieurs erreurs peuvent apparaître.
+
+### Erreur 1 : UnsatisfiedLinkError
+
+Cause :
+
+- Mauvais nom de bibliothèque
+  
+- Signature JNI incorrecte
+  
+- Différence entre package Java et C++
+
+Solution :
+
+Vérifier que le package correspond exactement.
+
+### Erreur 2 : Crash de l’application
+
+Cause :
+
+- Fonction native non implémentée
+
+Solution :
+
+Vérifier que toutes les fonctions C++ sont complètes.
+
+### Erreur 3 : Problème avec les String
+
+Cause :
+
+- Oubli de libérer la mémoire
+
+Solution :
+
+Utiliser ReleaseStringUTFChars
+
+- Le débogage JNI nécessite une bonne correspondance entre Java et C++ 
+et une gestion correcte de la mémoire.
+
+📸 Capture : Erreur "App keeps stopping" (mauvaise bibliothèque JNI)
+
+Par exemple change :
+
+System.loadLibrary("jnidemo");
+
+en 
+
+System.loadLibrary("fake-lib");
+
+![](https://github.com/user-attachments/assets/3b26516c-91ce-49b3-9f30-824f640a71d4)
+
+📸 code corrigé
+
+👉 Corrige l’erreur :
+
+Remets :
+
+![](https://github.com/user-attachments/assets/ff470e5a-ebee-470f-84a7-e4909a0a6189)
+
+## Conclusion
+
+Au cours de ce laboratoire, nous avons découvert et mis en pratique l’utilisation de JNI (Java Native Interface) dans une application Android.
+
+Nous avons appris à intégrer du code natif C++ dans un projet Android à l’aide du NDK et de CMake, ainsi qu’à établir la communication entre le code Java et le code natif. Plusieurs fonctions ont été implémentées, notamment le calcul du factoriel, l’inversion d’une chaîne de caractères et la somme d’un tableau.
+
+Ce laboratoire nous a également permis de comprendre l’importance de la correspondance entre les signatures Java et C++, ainsi que la gestion de la mémoire dans JNI, notamment pour les chaînes et les tableaux.
+
+Les tests réalisés ont confirmé le bon fonctionnement des fonctions natives, y compris la gestion des cas particuliers comme les valeurs négatives, les dépassements (overflow) et les entrées vides.
+
+Enfin, nous avons appris à utiliser Logcat pour analyser les logs natifs et faciliter le débogage, ainsi qu’à identifier et corriger des erreurs fréquentes comme les problèmes de liaison JNI.
+
+Ce laboratoire constitue une introduction importante au développement natif sous Android, ouvrant la voie à des applications plus performantes et à l’utilisation de bibliothèques C/C++ existantes.
+
+
+
