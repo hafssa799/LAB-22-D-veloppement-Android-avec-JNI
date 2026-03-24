@@ -12,11 +12,17 @@ Il vise à apprendre comment configurer un projet Android avec support natif en 
 Plus précisément, ce laboratoire permet de :
 
 - Comprendre le rôle de JNI dans la communication entre le code Java et le code natif C/C++.
+  
 - Apprendre à configurer correctement un projet Android pour supporter le développement natif.
+  
 - Utiliser le NDK pour compiler du code C/C++ et générer des bibliothèques partagées (.so).
+  
 - Utiliser CMake pour décrire et automatiser le processus de compilation du code natif.
+  
 - Implémenter et appeler des fonctions natives depuis une application Android.
+  
 - Comprendre les contraintes liées à la gestion de la mémoire et aux signatures JNI.
+  
 - Tester et valider le bon fonctionnement des interactions entre Java et C++.
 
 Ce laboratoire constitue une introduction essentielle au développement natif sous Android, permettant d’améliorer les performances des applications et d’exploiter des bibliothèques existantes en C/C++.
@@ -38,26 +44,18 @@ Aller dans :
   * Language : Java
     
   * Minimum SDK : API 24
-    
-   ✅ Cocher : Include C++ support
   
   * Build system : CMake
     
   * Cliquer sur Finish
     
-📂 Structure générée automatiquement
-
-- Après la création, Android Studio génère automatiquement les éléments suivants :
-
-📁 cpp/ → dossier contenant le code natif C/C++
+📂 Structure générée automatiquement : cpp/ → dossier contenant le code natif C/C++
 
 📄 native-lib.cpp → fichier principal du code C++
 
 📄 CMakeLists.txt → fichier de configuration de compilation
 
 ⚙️ Configuration Gradle adaptée au support du NDK
-
-👉 Cela signifie que l’environnement est prêt pour intégrer du code natif.
 
 ## Android Studio utilise :
 
@@ -66,16 +64,10 @@ Aller dans :
 - CMake pour gérer le processus de compilation
   
 - Gradle pour intégrer le tout dans l’application Android
-  
-🧪 Point de contrôle
 
-✔️ Le projet doit se synchroniser sans erreur
+- Si une erreur apparaît (NDK ou CMake) :
 
-❗ Résolution des problèmes (si erreur)
-
-Si une erreur apparaît (NDK ou CMake) :
-
-Aller dans :
+### Aller dans :
 
 Tools → SDK Manager → SDK Tools
 
@@ -202,22 +194,7 @@ cmake
 path
 
 👉 Indique l’emplacement du fichier CMakeLists.txt
-
-⚠️ Point important
-
-❗ Le chemin doit être correct : src/main/cpp/CMakeLists.txt
-
-Sinon :
-
-❌ la bibliothèque native .so ne sera pas générée
-❌ l’application ne pourra pas charger le code C++
-
-💡 Bon réflexe
-
-👉 Ne pas modifier cette partie sans raison
-👉 Toujours vérifier le chemin en cas d’erreur
-
-    
+ 
 ![](https://github.com/user-attachments/assets/316afc3e-ea5e-42f2-ba36-9db76e2ccb72)
 
 👉 Capture 1 : fichier build.gradle avec la section externalNativeBuild
@@ -285,37 +262,14 @@ log
 
 ➡️ nécessaire pour utiliser certaines fonctions Android natives
 
-⚠️ Point critique
-
-👉 Le nom native-lib doit être identique à :
-
-System.loadLibrary("native-lib");
-
-Sinon :
-
-❌ erreur au lancement
-
-❌ bibliothèque introuvable
-
-💡 Important
-
-👉 Android ajoute automatiquement :
-
-lib (préfixe)
-.so (suffixe)
-
-Donc :
-
-native-lib → libnative-lib.so
-
 
 ![](https://github.com/user-attachments/assets/cb12a660-0968-492e-9697-c047247ea600)
               
-               👉 Capture 2 : fichier CMakeLists.txt complet
+👉 Capture 2 : fichier CMakeLists.txt complet
 
 ![](https://github.com/user-attachments/assets/ae9874e9-f783-4e02-9f8c-7a4f087b7ba0)
               
-               👉 Capture 3 : dossier cpp/ avec fichiers visibles
+👉 Capture 3 : dossier cpp/ avec fichiers visibles
 
 # Étape 5 — Implémentation du code natif en C++
 
@@ -454,50 +408,12 @@ Permet d’éviter le name mangling du C++.
 
 👉 Sans cela :
 
-Java ne trouvera pas la fonction
-❌ erreur UnsatisfiedLinkError
-🔸 JNIEXPORT et JNICALL
+Java ne trouvera pas la fonction : ❌ erreur UnsatisfiedLinkError
 
-Macros JNI utilisées pour :
-
-exporter la fonction
-respecter la convention d’appel JNI
-🔸 Signature JNI
-
-Exemple :
-
-Java_com_example_jnidemo_MainActivity_helloFromJNI
-
-👉 Structure :
-
-Java_<package>_<classe>_<méthode>
-⚠️ Point critique
-
-Si :
-
-package ❌
-nom classe ❌
-nom méthode ❌
-
-👉 alors :
-
-❌ l’application plante
-❌ méthode native introuvable
-🔸 JNIEnv* env
-
-Interface permettant :
-
-créer des String Java
-accéder aux tableaux
-manipuler objets Java
 🔸 Gestion des chaînes
 GetStringUTFChars()
 ReleaseStringUTFChars()
 
-👉 Important :
-
-convertir Java → C++
-libérer mémoire après utilisation
 🔸 Gestion des tableaux
 GetIntArrayElements()
 ReleaseIntArrayElements()
@@ -512,19 +428,19 @@ __android_log_print
 
 ![](https://github.com/user-attachments/assets/81edf259-c6ad-4ce5-bf25-7554f4075b5b)
               
-               👉 Capture 1 : fonction helloFromJNI
+ 👉 Capture 1 : fonction helloFromJNI
                
 ![](https://github.com/user-attachments/assets/97a00946-4d56-4811-b4aa-cad2038736cc)
               
-               👉 Capture 2 : fonction factorial
+👉 Capture 2 : fonction factorial
                
 ![](https://github.com/user-attachments/assets/cec362a6-995e-462b-91de-59d7ff470721)
               
-              👉 Capture 3 : fonction reverseString
+👉 Capture 3 : fonction reverseString
              
 ![](https://github.com/user-attachments/assets/1b915fd5-46a4-4fcd-ac0c-4e81eb4455bf)
             
-              👉 Capture 4 : fonction sumArray
+👉 Capture 4 : fonction sumArray
 
 ## Étape 6 — Déclaration des méthodes natives côté Java
 
@@ -550,22 +466,6 @@ Indique que la méthode est implémentée en C++.
 
 👉 Capture 7 : bloc System.loadLibrary
 
-⚠️ Point critique (TRÈS IMPORTANT)
-
-👉 Le nom doit être EXACT :
-
-native-lib
-
-❌ Ne pas écrire :
-
-libnative-lib.so
-
-🔍 Pourquoi ?
-
-Android ajoute automatiquement :
-
-lib
-.so
 🔹 Appel des fonctions natives
 
 ![](https://github.com/user-attachments/assets/ec14df24-f56d-4c1f-8877-fec7da918858)
