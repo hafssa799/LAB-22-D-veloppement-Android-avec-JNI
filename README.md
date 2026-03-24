@@ -154,35 +154,6 @@ System.loadLibrary permet de charger cette bibliothèque au démarrage
 
 ## Étape 3 — Vérification de la configuration Gradle
 
-🔹 Accès au fichier
-
-- Ouvrir le fichier suivant :  app/build.gradle ou (selon le projet) - app/build.gradle.kts
-
-🔹 Configuration attendue
-
-- Une configuration typique est la suivante :
-
-android {
-    namespace "com.example.jnidemo"
-    compileSdk 35
-
-    defaultConfig {
-        applicationId "com.example.jnidemo"
-        minSdk 24
-        targetSdk 35
-        versionCode 1
-        versionName "1.0"
-    }
-
-    externalNativeBuild {
-        cmake {
-            path file("src/main/cpp/CMakeLists.txt")
-        }
-    }
-}
-
-### Explication
-
 - externalNativeBuild
 
 👉 Permet à Gradle d’intégrer la compilation du code natif
@@ -200,35 +171,6 @@ android {
 👉 Capture 6 : fichier build.gradle avec la section externalNativeBuild
 
 ## Étape 4 — Configuration du fichier CMakeLists.txt
-
-🔹 Accès au fichier
-
-Ouvrir :
-
-app/src/main/cpp/CMakeLists.txt
-
-🔹 Code à utiliser
-
-Remplacer le contenu par :
-
-cmake_minimum_required(VERSION 3.22.1)
-
-project("jnidemo")
-
-add_library(
-        native-lib
-        SHARED
-        native-lib.cpp)
-
-find_library(
-        log-lib
-        log)
-
-target_link_libraries(
-        native-lib
-        ${log-lib})
-        
-### Explication ligne par ligne
 
 🔸 cmake_minimum_required(VERSION 3.22.1)
 
@@ -256,11 +198,9 @@ Source : native-lib.cpp
 
 🔸 target_link_libraries(...)
 
-👉 Lie la bibliothèque native-lib avec :
+👉 Lie la bibliothèque native-lib avec :log
 
-log
-
-➡️ nécessaire pour utiliser certaines fonctions Android natives
+ ➡️ nécessaire pour utiliser certaines fonctions Android natives
 
 
 ![](https://github.com/user-attachments/assets/cb12a660-0968-492e-9697-c047247ea600)
