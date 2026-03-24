@@ -543,15 +543,19 @@ somme d’un tableau
 📸 Captures à insérer
 
 <img width="325" height="178" alt="image" src="https://github.com/user-attachments/assets/adc1ab4a-8c6a-4da7-9cd3-bb0c790e370e" />
+
 👉 Capture 6 : déclaration des méthodes native
 
 <img width="266" height="65" alt="image" src="https://github.com/user-attachments/assets/31352978-b891-4dc6-8ad3-cd9206315286" />
+
 👉 Capture 7 : bloc System.loadLibrary
 
 <img width="481" height="347" alt="image" src="https://github.com/user-attachments/assets/ec14df24-f56d-4c1f-8877-fec7da918858" />
+
 👉 Capture 8 : méthode onCreate()
 
 <img width="188" height="374" alt="image" src="https://github.com/user-attachments/assets/e8d2c48b-2df2-4e9e-a489-0205efd785b2" />
+
 👉 Capture 9 : affichage dans l’application
 
 - Cette application démontre l’utilisation de JNI pour exécuter du code natif en C++ dans une application Android.
