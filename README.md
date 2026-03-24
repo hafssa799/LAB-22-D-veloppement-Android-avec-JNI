@@ -59,12 +59,12 @@ Aller dans :
 
 👉 Cela signifie que l’environnement est prêt pour intégrer du code natif.
 
-🔍 Explication
-
 ## Android Studio utilise :
 
 - NDK pour compiler le code C/C++
+  
 - CMake pour gérer le processus de compilation
+  
 - Gradle pour intégrer le tout dans l’application Android
   
 🧪 Point de contrôle
@@ -78,6 +78,7 @@ Si une erreur apparaît (NDK ou CMake) :
 Aller dans :
 
 Tools → SDK Manager → SDK Tools
+
 Vérifier que les éléments suivants sont installés :
 
 ✅ NDK (Side by side)
@@ -89,40 +90,36 @@ Vérifier que les éléments suivants sont installés :
  
  ![](https://github.com/user-attachments/assets/be3d9b0d-e702-4620-8322-9a00e12c6803)
 
-          👉 Capture 1 : Écran de création du projet (configuration avec Include C++)
+👉 Capture 1 : Écran de création du projet (configuration avec Include C++)
 
  ![](https://github.com/user-attachments/assets/24d6d1b4-1be8-47c8-b4aa-7c7e9bef3170)
 
-          👉 Capture 2 : Structure du projet (dossier cpp/, fichiers générés)
+👉 Capture 2 : Structure du projet (dossier cpp/, fichiers générés)
 
 ![](https://github.com/user-attachments/assets/eced42a9-b755-49a0-9877-0de860cabc02)
 
-          👉 Capture 3 : SDK Manager → SDK Tools avec NDK, CMake, LLDB cochés
+👉 Capture 3 : SDK Manager → SDK Tools avec NDK, CMake, LLDB cochés
             
 
 ## Étape 2 — Comprendre les rôles des composants
 
 - Avant de commencer le développement, il est essentiel de comprendre les composants utilisés dans JNI.
 
-## JNI (Java Native Interface)
+### JNI (Java Native Interface)
 
 - JNI est une interface qui permet au code Java d’interagir avec du code natif écrit en C/C++.
 
-## Rôle :
+### Rôle :
 
 - Appeler des fonctions C/C++ depuis Java
 
 - Utiliser des bibliothèques natives dans Android
 
-## Exemple d’utilisation :
-
-Java → appelle → fonction native → retourne résultat
-
-## NDK (Native Development Kit)
+### NDK (Native Development Kit)
 
 Le NDK est un ensemble d’outils fourni par Android permettant de développer en C/C++.
 
-## Rôle :
+### Rôle :
 
 - Compiler le code natif
 
@@ -130,17 +127,17 @@ Le NDK est un ensemble d’outils fourni par Android permettant de développer e
 
 - Accéder à des fonctionnalités bas niveau
   
-## CMake
+### CMake
 
 CMake est un système de build utilisé pour configurer la compilation du code C/C++.
 
-## Rôle :
+### Rôle :
 
 -Décrire les fichiers à compiler
 
 -Gérer la génération de la bibliothèque native
 
-## Bibliothèque partagée (.so)
+### Bibliothèque partagée (.so)
 
 - Le code natif est compilé sous forme de bibliothèque partagée : libjnidemo.so
   
@@ -153,7 +150,6 @@ CMake est un système de build utilisé pour configurer la compilation du code C
 .so = bibliothèque dynamique (comme .dll sur Windows)
 
 System.loadLibrary permet de charger cette bibliothèque au démarrage
-
            
 ![](https://github.com/user-attachments/assets/43f9ad7d-e80a-4ff6-9506-981da7d0d96f)
 
@@ -193,7 +189,7 @@ android {
     }
 }
 
-🔍 Explication
+### Explication
 
 externalNativeBuild
 
@@ -255,7 +251,7 @@ target_link_libraries(
         native-lib
         ${log-lib})
         
-🔍 Explication ligne par ligne
+### Explication ligne par ligne
 
 🔸 cmake_minimum_required(VERSION 3.22.1)
 
